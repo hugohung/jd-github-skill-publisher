@@ -3,7 +3,7 @@ name: github-skill-publisher
 description: |
   WorkBuddy Skill 发布管理工具 - 将本地 WorkBuddy Skill 发布到 GitHub、更新版本、查询已发布仓库、删除仓库。
   触发词：发布skill、上传skill到github、更新skill版本、删除skill仓库、查看我的skill仓库、publish skill。
-version: "1.0.0"
+version: "1.1.0"
 author: honghaoxiang
 ---
 
@@ -24,6 +24,30 @@ author: honghaoxiang
 格式：`workbuddy-skill-<skill-name>`
 
 例如：`drama-topic-research` → `workbuddy-skill-drama-topic-research`
+
+## 仓库描述格式规则
+
+所有 GitHub 仓库的 description 必须使用以下格式，让别人一眼看懂用途：
+
+```
+<emoji> <中文标题> | <中文功能说明>
+```
+
+**示例：**
+- `🎬 京东AI短剧剧本助手 | 通过对话生成符合京东规范的短剧剧本、人物设定、场景设定和封面提示词`
+- `🚀 GitHub Skill发布管理工具 | 管理WorkBuddy Skill在GitHub上的完整生命周期：发布、更新、查询、删除`
+- `🔥 热门话题调研专家 | 自动搜集18个平台热榜，分析短剧适配度，生成题材推荐报告`
+
+**常用 emoji 参考：**
+- 🎬 影视/短剧相关
+- 🛠️ 工具/开发相关
+- 🚀 发布/部署相关
+- 🔥 热门/趋势相关
+- 📊 数据/分析相关
+- 🎨 设计/图片相关
+- 📝 文档/写作相关
+
+创建仓库时直接使用此格式设置 `--description` 参数。如果已创建的仓库描述不符合此格式，使用 `gh repo edit` 更新。
 
 ## 操作流程
 
@@ -50,7 +74,7 @@ author: honghaoxiang
    git add .
    git commit -m "feat: init <skill-name> v<version>"
    git branch -M main
-   gh repo create hugohung/workbuddy-skill-<name> --public --source=. --push --description "<description>"
+   gh repo create hugohung/workbuddy-skill-<name> --public --source=. --push --description "<emoji> <中文标题> | <中文功能说明>"
    ```
 8. 创建 Release：
    ```bash
