@@ -1,5 +1,5 @@
 ---
-name: github-skill-publisher
+name: jd-github-skill-publisher
 description: |
   WorkBuddy Skill 发布管理工具 - 将本地 WorkBuddy Skill 发布到 GitHub、更新版本、查询已发布仓库、删除仓库。
   触发词：发布skill、上传skill到github、更新skill版本、删除skill仓库、查看我的skill仓库、publish skill。
