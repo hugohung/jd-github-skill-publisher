@@ -3,7 +3,7 @@ name: jd-github-skill-publisher
 description: |
   WorkBuddy Skill 发布管理工具 - 将本地 WorkBuddy Skill 发布到 GitHub、更新版本、查询已发布仓库、删除仓库。
   触发词：发布skill、上传skill到github、更新skill版本、删除skill仓库、查看我的skill仓库、publish skill。
-version: "1.3.0"
+version: "1.4.0"
 author: honghaoxiang
 ---
 
@@ -130,6 +130,29 @@ git clone https://github.com/hugohung/jd-<name>.git ~/.workbuddy/skills/<name>
 **`~` 在不同平台的实际路径：**
 - Windows: `C:\Users\honghaoxiang`
 - macOS: `/Users/honghaoxiang`
+
+## Skill 目录结构规范（强制）
+
+所有 `author: honghaoxiang` 的 skill **必须**遵循以下目录结构。本地和 GitHub 仓库保持一致。
+
+```
+<skill-name>/
+  ├── README.md          ← 必须有：项目说明、安装方式、使用示例
+  ├── SKILL.md           ← 必须有：skill 定义（frontmatter + 执行指令）
+  ├── references/        ← 必须有：参考资料（API文档、规范说明等）
+  ├── examples/          ← 必须有：使用示例（示例输入输出、截图等）
+  ├── scripts/           ← 可选：执行脚本（Python/Node.js 等）
+  └── LICENSE             ← 推荐：MIT License
+```
+
+> 上面4项（README.md + SKILL.md + references/ + examples/）是**最低要求**，一个都不能少。
+> 额外的目录如 `scripts/`、`assets/`、`templates/` 等可以自由添加。
+
+**发布新 skill 时必须检查：**
+1. `references/` 目录存在（至少含 `.gitkeep` 占位）
+2. `examples/` 目录存在（至少含 `.gitkeep` 占位）
+3. `README.md` 已生成（使用下方模板）
+4. `SKILL.md` frontmatter 包含 `name`、`description`、`version`、`author: honghaoxiang`
 
 ## 上传前自查清单 ⚠️ 必读
 
